@@ -4,7 +4,7 @@ A **local-only** gaming storefront demo (React + Node + MySQL). It mimics a Stea
 
 ## Visual showcase
 
-See **[docs/SHOWCASE.md](docs/SHOWCASE.md)** for screenshots of the login UI, store, and both games.
+See **[docs/SHOWCASE.md](docs/SHOWCASE.md)** for a **mascot login video** and screenshots of the store and both games.
 
 | Platform login | Store — original titles | Aim Lab | Soccer |
 |----------------|-------------------------|---------|--------|
