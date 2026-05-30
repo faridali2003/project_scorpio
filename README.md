@@ -8,7 +8,9 @@ See **[docs/SHOWCASE.md](docs/SHOWCASE.md)** for screenshots of the login UI, st
 
 | Platform login | Store — original titles | Aim Lab | Soccer |
 |----------------|-------------------------|---------|--------|
-| ![Login](docs/screenshots/01-auth-login.png) | ![Store](docs/screenshots/02-store-originals.png) | ![Aim Lab](docs/screenshots/03-aim-lab-menu.png) | ![Soccer](docs/screenshots/05-soccer-match.png) |
+| ![Login](docs/screenshots/01-auth-login.png) | ![Store](docs/screenshots/02-store-originals.png) | ![Aim Lab menu](docs/screenshots/03-aim-lab-menu.png) | ![Soccer match](docs/screenshots/05-soccer-match.png) |
+
+Screenshots are **1920×1080** captures from Microsoft Edge. Re-capture with `node tools/capture-screenshots.mjs` while the app is running locally.
 
 Standalone game repos: [Aim Lab](https://github.com/faridali2003/project_scorpio-aim-lab) · [Soccer](https://github.com/faridali2003/project_scorpio-soccer)
 

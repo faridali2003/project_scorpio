@@ -1,6 +1,6 @@
 # Project Scorpio — visual showcase
 
-Screenshots captured from the running project (local dev). These show the **inside** of the work: UI, store, and both playable games.
+Full **1920×1080** screenshots captured from **Microsoft Edge** at `http://localhost:3000`.
 
 ## Platform (this repo)
 
@@ -12,19 +12,28 @@ The storefront includes accounts, library, friends, chat, wallet, and gift codes
 
 ## Project Scorpio: Aim Lab
 
-| Difficulty menu | Level cleared |
-|-----------------|---------------|
-| ![Aim Lab menu](screenshots/03-aim-lab-menu.png) | ![Aim Lab victory](screenshots/04-aim-lab-victory.png) |
+| Difficulty menu | In-game HUD |
+|-----------------|-------------|
+| ![Aim Lab menu](screenshots/03-aim-lab-menu.png) | ![Aim Lab gameplay](screenshots/04-aim-lab-gameplay.png) |
 
 Standalone repo: [project_scorpio-aim-lab](https://github.com/faridali2003/project_scorpio-aim-lab)
 
 ## Project Scorpio: Soccer Stadium
 
-| 7v7 match |
-|-----------|
-| ![Soccer match](screenshots/05-soccer-match.png) |
+| Pre-match | 7v7 match |
+|-----------|-----------|
+| ![Soccer menu](screenshots/05-soccer-menu.png) | ![Soccer match](screenshots/05-soccer-match.png) |
 
 Standalone repo: [project_scorpio-soccer](https://github.com/faridali2003/project_scorpio-soccer)
+
+## Re-capture locally
+
+```bash
+# Start platform first (backend + my-app), then:
+node tools/capture-screenshots.mjs
+```
+
+Uses Playwright with the installed **Microsoft Edge** channel at desktop resolution.
 
 ## What each repo demonstrates
 
