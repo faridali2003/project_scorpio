@@ -1,0 +1,688 @@
+.scorpio-soccer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #3a6a8a;
+  z-index: 2000;
+}
+
+.scorpio-soccer__canvas-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.scorpio-soccer__canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scorpio-soccer__hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.scorpio-soccer__hud button {
+  pointer-events: auto;
+}
+
+.scorpio-soccer__scoreboard {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  background: rgba(8, 12, 20, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.scorpio-soccer__score {
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  min-width: 72px;
+  text-align: center;
+}
+
+.scorpio-soccer__team--home {
+  color: #4da3ff;
+}
+
+.scorpio-soccer__team--away {
+  color: #ff5a5a;
+}
+
+.scorpio-soccer__match-bar {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(8, 12, 20, 0.8);
+  border-radius: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.scorpio-soccer__clock {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.scorpio-soccer__possession {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.scorpio-soccer__possession--attack {
+  background: rgba(40, 120, 255, 0.35);
+  color: #9ec5ff;
+}
+
+.scorpio-soccer__possession--defend {
+  background: rgba(220, 80, 60, 0.35);
+  color: #ffb09e;
+}
+
+.scorpio-soccer__ref-badge {
+  position: absolute;
+  bottom: 48px;
+  right: 16px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.scorpio-soccer__controls-guide {
+  text-align: left;
+  max-width: 480px;
+  margin: 16px auto;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.scorpio-soccer__controls-guide h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.scorpio-soccer__controls-guide ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.scorpio-soccer__light {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scorpio-soccer__light--night {
+  color: #a8c4ff;
+}
+
+.scorpio-soccer__light--day {
+  color: #ffe9a8;
+}
+
+.scorpio-soccer__banner {
+  position: absolute;
+  top: 98px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 9px 26px;
+  background: rgba(18, 28, 50, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  animation: scorpio-soccer-banner-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes scorpio-soccer-banner-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes scorpio-soccer-fade {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scorpio-soccer__hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.scorpio-soccer__menu {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 88px;
+  pointer-events: none;
+  z-index: 2;
+  color: #fff;
+}
+
+.scorpio-soccer__menu-panel {
+  pointer-events: auto;
+  max-width: 520px;
+  width: min(92vw, 520px);
+  max-height: min(88vh, 760px);
+  overflow-y: auto;
+  padding: 28px 32px 20px;
+  border-radius: 14px;
+  background: rgba(5, 8, 14, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+  text-align: center;
+}
+
+.scorpio-soccer__menu--overlay .scorpio-soccer__menu-panel {
+  background: rgba(5, 8, 14, 0.94);
+}
+
+.scorpio-soccer__menu h1 {
+  font-size: 2.2rem;
+  margin: 0 0 8px;
+}
+
+.scorpio-soccer__menu h2 {
+  font-size: 1.6rem;
+  margin: 0 0 12px;
+}
+
+.scorpio-soccer__menu p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 420px;
+}
+
+.scorpio-soccer__menu-sub {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.scorpio-soccer__menu-debug {
+  color: #ffdd55;
+  max-width: 420px;
+}
+
+.scorpio-soccer__menu-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  max-width: 420px;
+  margin-top: 12px;
+}
+
+.scorpio-soccer__canvas {
+  outline: none;
+  cursor: crosshair;
+}
+
+.scorpio-soccer__menu-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scorpio-soccer__menu-bar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(5, 8, 14, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.scorpio-soccer__kickoff-btn {
+  min-width: 180px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.scorpio-soccer__menu-bar-hint {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+.scorpio-soccer__controls-details {
+  margin: 16px auto 0;
+  max-width: 420px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.scorpio-soccer__controls-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  color: #9ec5ff;
+}
+
+.scorpio-soccer__controls-details .scorpio-soccer__controls-guide {
+  margin-top: 10px;
+}
+
+.scorpio-soccer__final {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 8px 0 16px;
+}
+
+/* ── Button system (btn / btn-primary / btn-secondary / btn-lg) ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.08s, box-shadow 0.15s;
+  text-align: center;
+  white-space: nowrap;
+  outline: none;
+  user-select: none;
+  letter-spacing: 0.01em;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: linear-gradient(160deg, #2370e8 0%, #1452bb 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(30, 90, 210, 0.45);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(160deg, #2f7ef8 0%, #1a60d4 100%);
+  box-shadow: 0 4px 20px rgba(40, 110, 240, 0.55);
+}
+
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(80, 160, 255, 0.55);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.btn-secondary:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.btn-lg {
+  font-size: 1.05rem;
+  padding: 14px 30px;
+  border-radius: 10px;
+  letter-spacing: 0.02em;
+}
+
+.scorpio-soccer__exit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Input debug overlay — screen recording / QA */
+.scorpio-soccer__input-debug {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  width: min(420px, 92vw);
+  max-height: 72vh;
+  overflow: auto;
+  pointer-events: none;
+  z-index: 12;
+  background: rgba(6, 10, 18, 0.92);
+  border: 1px solid rgba(255, 220, 80, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #e8ecf4;
+  font-size: 11px;
+  line-height: 1.35;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+.scorpio-soccer__dbg-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scorpio-soccer__dbg-title {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffdd55;
+  font-size: 12px;
+}
+
+.scorpio-soccer__dbg-mode {
+  color: #8ec8ff;
+  font-weight: 600;
+}
+
+.scorpio-soccer__dbg-hint {
+  margin-left: auto;
+  opacity: 0.55;
+  font-size: 10px;
+}
+
+.scorpio-soccer__dbg-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scorpio-soccer__dbg-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scorpio-soccer__dbg-shoulder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scorpio-soccer__dbg-triggers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.scorpio-soccer__dbg-trigger {
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.scorpio-soccer__dbg-trigger--on {
+  background: #ff6b35;
+  color: #111;
+}
+
+.scorpio-soccer__dbg-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scorpio-soccer__dbg-face-mid {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scorpio-soccer__dbg-btn {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.05s, box-shadow 0.05s;
+}
+
+.scorpio-soccer__dbg-btn--on {
+  box-shadow: 0 0 14px rgba(255, 230, 80, 0.9);
+  border-color: #ffdd55;
+}
+
+.scorpio-soccer__dbg-btn--a.scorpio-soccer__dbg-btn--on {
+  background: #2ecc71;
+  color: #042;
+}
+
+.scorpio-soccer__dbg-btn--b.scorpio-soccer__dbg-btn--on {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.scorpio-soccer__dbg-btn--x.scorpio-soccer__dbg-btn--on {
+  background: #3498db;
+  color: #fff;
+}
+
+.scorpio-soccer__dbg-btn--y.scorpio-soccer__dbg-btn--on {
+  background: #f1c40f;
+  color: #222;
+}
+
+.scorpio-soccer__dbg-btn--bumper.scorpio-soccer__dbg-btn--on {
+  border-radius: 8px;
+  background: #9b59b6;
+  color: #fff;
+}
+
+.scorpio-soccer__dbg-btn-label {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.scorpio-soccer__dbg-btn-sub {
+  font-size: 8px;
+  opacity: 0.85;
+  text-transform: uppercase;
+}
+
+.scorpio-soccer__dbg-stick-base {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.scorpio-soccer__dbg-stick-dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #ffdd55;
+  box-shadow: 0 0 8px #ffdd55;
+}
+
+.scorpio-soccer__dbg-stick-label {
+  display: block;
+  text-align: center;
+  font-size: 9px;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+.scorpio-soccer__dbg-keys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.scorpio-soccer__dbg-keys-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scorpio-soccer__dbg-keys-row--actions {
+  margin-top: 4px;
+}
+
+.scorpio-soccer__dbg-key {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.scorpio-soccer__dbg-key--on {
+  background: #ffdd55;
+  color: #111;
+  border-color: #ffdd55;
+}
+
+.scorpio-soccer__dbg-state {
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.scorpio-soccer__dbg-state strong {
+  color: #8ec8ff;
+  margin-right: 4px;
+}
+
+.scorpio-soccer__dbg-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.scorpio-soccer__dbg-pill {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.scorpio-soccer__dbg-pill--warn {
+  background: #e67e22;
+  color: #111;
+}
+
+.scorpio-soccer__dbg-pill--goal {
+  background: #2ecc71;
+  color: #042;
+}
+
+.scorpio-soccer__dbg-log-title {
+  font-weight: 700;
+  color: #ffdd55;
+  margin-bottom: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.scorpio-soccer__dbg-log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.scorpio-soccer__dbg-log li {
+  display: flex;
+  gap: 6px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scorpio-soccer__dbg-log-t {
+  color: rgba(255, 255, 255, 0.45);
+  min-width: 42px;
+}
+
+.scorpio-soccer__dbg-log-label {
+  font-weight: 700;
+  color: #fff;
+  min-width: 64px;
+}
+
+.scorpio-soccer__dbg-log-detail {
+  color: #8ec8ff;
+  flex: 1;
+}

@@ -1,0 +1,488 @@
+.speedrun-shooter {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #07070d;
+  z-index: 1;
+}
+
+.speedrun-shooter__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.speedrun-shooter__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(7, 7, 13, 0.72);
+  backdrop-filter: blur(6px);
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+}
+.speedrun-shooter__overlay-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.speedrun-shooter__overlay-sub {
+  font-size: 1rem;
+  color: rgba(244, 244, 248, 0.9);
+}
+.speedrun-shooter__overlay-keys {
+  font-size: 12px;
+  color: rgba(161, 161, 181, 0.9);
+  margin-top: 8px;
+}
+
+.speedrun-shooter__overlay-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(7, 7, 13, 0.72);
+  backdrop-filter: blur(6px);
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+  pointer-events: auto;
+}
+
+.speedrun-shooter__difficulty-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 420px;
+}
+
+.speedrun-shooter__diff-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  background: rgba(15, 15, 28, 0.9);
+  color: #f4f4f8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.speedrun-shooter__diff-btn:hover {
+  border-color: rgba(34, 211, 238, 0.55);
+}
+
+.speedrun-shooter__diff-btn.active {
+  border-color: rgba(34, 211, 238, 0.8);
+  background: rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+}
+
+.speedrun-shooter__diff-desc {
+  font-size: 12px;
+  color: rgba(161, 161, 181, 0.95);
+  max-width: 360px;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.speedrun-shooter__play-btn {
+  margin-top: 6px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  color: #07070d;
+}
+
+.speedrun-shooter__play-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.speedrun-shooter__hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-family: system-ui, sans-serif;
+  color: rgba(244, 244, 248, 0.75);
+  background: rgba(7, 7, 13, 0.65);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 3;
+}
+
+.speedrun-shooter__hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+  background: rgba(7, 7, 13, 0.7);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  border-radius: 8px;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+.speedrun-shooter__crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+}
+
+.speedrun-shooter__crosshair-dot {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(244, 244, 248, 0.95);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.speedrun-shooter__crosshair-line {
+  position: absolute;
+  background: rgba(244, 244, 248, 0.92);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.speedrun-shooter__crosshair-line--top {
+  left: -0.5px;
+  top: -10px;
+  width: 1px;
+  height: 5px;
+}
+
+.speedrun-shooter__crosshair-line--bottom {
+  left: -0.5px;
+  top: 5px;
+  width: 1px;
+  height: 5px;
+}
+
+.speedrun-shooter__crosshair-line--left {
+  left: -10px;
+  top: -0.5px;
+  width: 5px;
+  height: 1px;
+}
+
+.speedrun-shooter__crosshair-line--right {
+  left: 5px;
+  top: -0.5px;
+  width: 5px;
+  height: 1px;
+}
+
+
+.speedrun-shooter__stats {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.speedrun-shooter__stat {
+  padding: 8px 16px;
+  background: rgba(7, 7, 13, 0.78);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 8px;
+  text-align: center;
+  min-width: 88px;
+}
+
+.speedrun-shooter__stat-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(161, 161, 181, 0.9);
+  font-family: system-ui, sans-serif;
+}
+
+.speedrun-shooter__stat-value {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+  margin-top: 2px;
+}
+
+.speedrun-shooter__stat-value--warn {
+  color: #f87171;
+}
+
+.speedrun-shooter__stat-value--accent {
+  color: #22d3ee;
+}
+
+.speedrun-shooter__end {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 7, 13, 0.55);
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+
+.speedrun-shooter__end-card {
+  padding: 28px 32px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 12px;
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  background: rgba(15, 15, 28, 0.95);
+}
+
+.speedrun-shooter__end-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.speedrun-shooter__end-card p {
+  margin: 0 0 20px;
+  color: rgba(161, 161, 181, 0.95);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.speedrun-shooter__end-card--win {
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.15);
+}
+
+.speedrun-shooter__end-card--lose {
+  border-color: rgba(248, 113, 113, 0.45);
+}
+
+.speedrun-shooter__end-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.speedrun-shooter__end-actions .btn {
+  min-width: 120px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: system-ui, sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+.speedrun-shooter__end-actions .btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  color: #07070d;
+}
+
+.speedrun-shooter__end-actions .btn-secondary {
+  background: rgba(40, 40, 60, 0.9);
+  color: #f4f4f8;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+.speedrun-shooter__quit {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 5;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-family: system-ui, sans-serif;
+  color: rgba(244, 244, 248, 0.85);
+  background: rgba(7, 7, 13, 0.7);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.speedrun-shooter__quit:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  color: #22d3ee;
+}
+
+.speedrun-shooter__gear {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  background: rgba(7, 7, 13, 0.75);
+  color: #f4f4f8;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.speedrun-shooter__gear:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+  color: #22d3ee;
+}
+
+.speedrun-shooter__settings-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 7, 13, 0.72);
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+.speedrun-shooter__settings {
+  width: min(420px, 92vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 22px 24px;
+  border-radius: 12px;
+  background: rgba(15, 15, 28, 0.98);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  font-family: system-ui, sans-serif;
+  color: #f4f4f8;
+}
+
+.speedrun-shooter__settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.speedrun-shooter__settings-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.speedrun-shooter__settings-close {
+  background: none;
+  border: none;
+  color: rgba(161, 161, 181, 0.9);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.speedrun-shooter__settings-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+.speedrun-shooter__settings-row input[type='range'] {
+  grid-column: 1 / -1;
+  width: 100%;
+  accent-color: #8b5cf6;
+}
+
+.speedrun-shooter__settings-row--check {
+  grid-template-columns: 1fr auto;
+}
+
+.speedrun-shooter__settings-row--check input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22d3ee;
+}
+
+.speedrun-shooter__settings-value {
+  font-size: 12px;
+  color: #22d3ee;
+  text-align: right;
+}
+
+.speedrun-shooter__settings-note {
+  font-size: 11px;
+  color: rgba(161, 161, 181, 0.85);
+  line-height: 1.45;
+  margin: 8px 0 16px;
+}
+
+.speedrun-shooter__settings-note code {
+  font-size: 10px;
+  color: rgba(34, 211, 238, 0.9);
+}
+
+.speedrun-shooter__settings-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.speedrun-shooter__settings-actions .btn {
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.speedrun-shooter__settings-actions .btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  color: #07070d;
+}
+
+.speedrun-shooter__settings-actions .btn-secondary {
+  background: rgba(40, 40, 60, 0.9);
+  color: #f4f4f8;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
