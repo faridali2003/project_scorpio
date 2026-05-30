@@ -2,6 +2,16 @@
 
 A **local-only** gaming storefront demo (React + Node + MySQL). It mimics a Steam-style UI for learning/portfolio purposes only.
 
+## Visual showcase
+
+See **[docs/SHOWCASE.md](docs/SHOWCASE.md)** for screenshots of the login UI, store, and both games.
+
+| Platform login | Store — original titles | Aim Lab | Soccer |
+|----------------|-------------------------|---------|--------|
+| ![Login](docs/screenshots/01-auth-login.png) | ![Store](docs/screenshots/02-store-originals.png) | ![Aim Lab](docs/screenshots/03-aim-lab-menu.png) | ![Soccer](docs/screenshots/05-soccer-match.png) |
+
+Standalone game repos: [Aim Lab](https://github.com/faridali2003/project_scorpio-aim-lab) · [Soccer](https://github.com/faridali2003/project_scorpio-soccer)
+
 ## Safety — no real Steam, VAC-safe
 
 This project **must never**:
