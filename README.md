@@ -45,10 +45,12 @@ The database name `steam_clone` is historical (tutorial naming) — it is **not*
 
 These two titles appear as **standalone products** in the Store (`project_scorpio__*` slugs):
 
-| Store name | Slug | Play |
-|------------|------|------|
-| **Project Scorpio: Aim Lab** | `project_scorpio__aim_lab` | Store → Play, or `http://localhost:3000/?play=speedrun-shooter` |
-| **Project Scorpio: Soccer Stadium** | `project_scorpio__soccer` | Store → Play, or `http://localhost:3000/?play=scorpio-soccer` |
+| Store name | Slug | In platform | Standalone repo |
+|------------|------|-------------|-----------------|
+| **Project Scorpio: Aim Lab** | `project_scorpio__aim_lab` | Store → Play, or `?play=speedrun-shooter` | [project_scorpio-aim-lab](https://github.com/faridali2003/project_scorpio-aim-lab) |
+| **Project Scorpio: Soccer Stadium** | `project_scorpio__soccer` | Store → Play, or `?play=scorpio-soccer` | [project_scorpio-soccer](https://github.com/faridali2003/project_scorpio-soccer) |
+
+Each standalone repo runs with `npm install && npm start` — browser-only, no backend required.
 
 ## Demo gift codes
 
