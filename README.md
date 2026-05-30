@@ -2,15 +2,27 @@
 
 A **local-only** gaming storefront demo (React + Node + MySQL). It mimics a Steam-style UI for learning/portfolio purposes only.
 
-## Visual showcase
+## New — animated login mascots
 
-See **[docs/SHOWCASE.md](docs/SHOWCASE.md)** for a **mascot login video** and screenshots of the store and both games.
+The first thing you see at `http://localhost:3000` is the **upgraded auth page** — four mascots react to email focus, hidden password typing, wrong login, and success.
 
-| Platform login | Store — original titles | Aim Lab | Soccer |
-|----------------|-------------------------|---------|--------|
-| ![Login](docs/screenshots/01-auth-login.png) | ![Store](docs/screenshots/02-store-originals.png) | ![Aim Lab menu](docs/screenshots/03-aim-lab-menu.png) | ![Soccer match](docs/screenshots/05-soccer-match.png) |
+[![New Scorpio login — mascot auth UI](docs/screenshots/00-auth-mascots-hero.png)](https://faridali2003.github.io/project_scorpio/showcase-video.html)
 
-Screenshots are **1920×1080** captures from Microsoft Edge. Re-capture with `node tools/capture-screenshots.mjs` while the app is running locally.
+| Watch in browser | On GitHub |
+|------------------|-----------|
+| **[▶ Play showcase video](https://faridali2003.github.io/project_scorpio/showcase-video.html)** | [Open video file on GitHub](https://github.com/faridali2003/project_scorpio/blob/master/docs/videos/mascot-login-showcase.webm) |
+
+Demo credentials in the video are **fake only** (`blorp.mcfake@totally-not-real.invalid`).
+
+After sign-in you get the same Steam-style dashboard, store, library, friends, chat, and two playable originals.
+
+## Rest of the app
+
+| Store — original titles | Aim Lab | Soccer |
+|-------------------------|---------|--------|
+| ![Store](docs/screenshots/02-store-originals.png) | ![Aim Lab menu](docs/screenshots/03-aim-lab-menu.png) | ![Soccer match](docs/screenshots/05-soccer-match.png) |
+
+More in **[docs/SHOWCASE.md](docs/SHOWCASE.md)** · Re-capture with `node tools/capture-screenshots.mjs` · Re-record mascots with `node tools/record-mascot-showcase.mjs`
 
 Standalone game repos: [Aim Lab](https://github.com/faridali2003/project_scorpio-aim-lab) · [Soccer](https://github.com/faridali2003/project_scorpio-soccer)
 
@@ -70,5 +82,5 @@ Each standalone repo runs with `npm install && npm start` — browser-only, no b
 
 ## Version
 
-- **v3.0** — modular backend, API fixes, shared frontend client, env config
+- **v3.0** — modular backend, API fixes, shared frontend client, env config, **animated login mascots**
 - **Not affiliated with Valve or Steam**

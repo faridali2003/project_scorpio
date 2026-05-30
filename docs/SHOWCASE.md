@@ -2,20 +2,26 @@
 
 Full **1920×1080** captures from **Microsoft Edge** at `http://localhost:3000`.
 
-## Login mascots (video)
+## Login mascots (new — front page)
 
-Screen recording of the auth mascot reactions — email curiosity, hidden password, wrong-login dismay + head-shake “no”, and success celebration.
+The upgraded auth UI is what visitors see first when they open the app (before sign-in).
 
-> Credentials in the video are **fake demo-only** (`blorp.mcfake@totally-not-real.invalid` / `NopeNopeWrong999`) — not real account data.
+![New mascot login hero](screenshots/00-auth-mascots-hero.png)
 
-<video src="https://github.com/faridali2003/project_scorpio/raw/master/docs/videos/mascot-login-showcase.webm" width="960" controls></video>
+### Watch the showcase video
 
-[Download `mascot-login-showcase.webm`](videos/mascot-login-showcase.webm) · [Re-record locally](#re-capture-locally)
+| Plays inline in browser | GitHub file view |
+|-------------------------|------------------|
+| **[▶ Play on GitHub Pages](https://faridali2003.github.io/project_scorpio/showcase-video.html)** | [Open `.webm` on GitHub](https://github.com/faridali2003/project_scorpio/blob/master/docs/videos/mascot-login-showcase.webm) |
 
-## Platform (this repo)
+> Fake demo credentials only: `blorp.mcfake@totally-not-real.invalid` / `NopeNopeWrong999`
 
-| Login & auth UI | Store — Project Scorpio originals |
-|-----------------|-----------------------------------|
+The video covers email curiosity, hidden-password reactions, wrong-login dismay + head-shake “no”, and success celebration.
+
+## Platform (after sign-in)
+
+| Login (same session, wider crop) | Store — Project Scorpio originals |
+|----------------------------------|-----------------------------------|
 | ![Auth login](screenshots/01-auth-login.png) | ![Store originals](screenshots/02-store-originals.png) |
 
 The storefront includes accounts, library, friends, chat, wallet, and gift codes — all local demo only.
@@ -47,10 +53,16 @@ node tools/capture-screenshots.mjs      # static screenshots
 Uses Playwright with the installed **Microsoft Edge** channel at desktop resolution.  
 The recorder registers a throwaway demo user with fake email/password — safe to publish in the video.
 
+### GitHub Pages (inline video player)
+
+Enable **Pages → Deploy from branch → `/docs`**. The player lives at:
+
+`https://<username>.github.io/project_scorpio/showcase-video.html`
+
 ## What each repo demonstrates
 
 | Repo | Skills shown |
 |------|----------------|
-| **project_scorpio** | Full-stack app, REST API, MySQL, JWT auth, Socket.io, Steam-style UX |
+| **project_scorpio** | Full-stack app, REST API, MySQL, JWT auth, Socket.io, Steam-style UX, **interactive login mascots** |
 | **project_scorpio-aim-lab** | Three.js FPS, collision, pointer lock, procedural assets |
 | **project_scorpio-soccer** | Three.js sports sim, AI, stadium GLB, gamepad input |

@@ -36,15 +36,16 @@ async function capture() {
 
   const page = await context.newPage();
 
-  // ── Auth login ──
+  // ── Auth login (new mascot UI) ──
   await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
-  await wait(800);
+  await wait(1200);
   await page.screenshot({ path: path.join(outMain, '01-auth-login.png') });
+  await page.screenshot({ path: path.join(outMain, '00-auth-mascots-hero.png') });
 
-  // ── Login → store ──
-  await page.fill('input[placeholder="Email address"]', 'showcase_demo@example.com');
-  await page.fill('input[placeholder="Password"]', 'demo123456');
-  await page.click('button:has-text("Sign In")');
+  // ── Login → store (fake demo credentials only) ──
+  await page.fill('input[name="email"]', 'blorp.mcfake@totally-not-real.invalid');
+  await page.fill('input[name="password"]', 'ShowcaseWin888!');
+  await page.click('button[type="submit"]');
   await page.waitForSelector('text=Original titles', { timeout: 15000 });
   await wait(600);
   await page.screenshot({ path: path.join(outMain, '02-store-originals.png'), fullPage: false });
