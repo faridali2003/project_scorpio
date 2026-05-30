@@ -1,6 +1,8 @@
 node_modules/
 .env
-.env.local
+.env.*
+!.env.example
+!**/.env.example
 backend/uploads/*
 !backend/uploads/.gitkeep
 *.log
@@ -11,3 +13,5 @@ dist/
 coverage/
 .vscode/
 *.pem
+*.bak
+_shell_test.txt

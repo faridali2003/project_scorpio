@@ -29,7 +29,7 @@ The database name `steam_clone` is historical (tutorial naming) — it is **not*
    ```bash
    cd backend
    copy .env.example .env
-   # Edit DB_PASSWORD, JWT_SECRET
+   # Edit DB_PASSWORD and JWT_SECRET (never commit .env)
    npm install
    npm run dev
    ```
